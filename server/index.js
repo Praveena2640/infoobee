@@ -66,8 +66,7 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && (process.env.SMTP_PASS || 
 const sendManagerAlertEmail = (itemName, currentStock) => {
   if (!transporter) return;
   
-  const isRealSMTP = process.env.SMTP_HOST ? true : false;
-  const toAddress = process.env.MANAGER_EMAIL || (isRealSMTP ? process.env.SMTP_USER : 'manager@bizsync.local');
+  const toAddress = process.env.SMTP_USER;
 
   const mailOptions = {
     from: `BizSync System <${process.env.SMTP_USER || 'admin@bizsync.local'}>`,
