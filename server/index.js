@@ -70,7 +70,7 @@ const sendManagerAlertEmail = (itemName, currentStock) => {
   const toAddress = process.env.MANAGER_EMAIL || (isRealSMTP ? process.env.SMTP_USER : 'manager@bizsync.local');
 
   const mailOptions = {
-    from: '"BizSync System" <admin@bizsync.local>',
+    from: `BizSync System <${process.env.SMTP_USER || 'admin@bizsync.local'}>`,
     to: toAddress,
     subject: `SYSTEM ALERT: Low Stock for ${itemName}`,
     text: `Hello Manager,\n\nThe stock for ${itemName} has fallen to a critical level (${currentStock} remaining).\nPlease review the inventory and approve a purchase request to restock immediately.\n\nThank you,\nBizSync Automated System`
