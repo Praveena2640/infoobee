@@ -63,31 +63,24 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && (process.env.SMTP_PASS || 
   });
 }
 
-const sendAlertEmails = (itemName, currentStock) => {
+const sendManagerAlertEmail = (itemName, currentStock) => {
   if (!transporter) return;
   
   const isRealSMTP = process.env.SMTP_HOST ? true : false;
-  const defaultManager = isRealSMTP ? process.env.SMTP_USER : 'manager@bizsync.local';
-  
-  // Grab both emails from the .env file (or use defaults)
-  const managerEmail = process.env.MANAGER_EMAIL || defaultManager;
-  const vendorEmail = process.env.VENDOR_EMAIL || 'vendor@bizsync.local';
-  
-  // Combine them with a comma so nodemailer sends to BOTH
-  const toAddresses = `${managerEmail}, ${vendorEmail}`;
+  const toAddress = process.env.MANAGER_EMAIL || (isRealSMTP ? process.env.SMTP_USER : 'manager@bizsync.local');
 
   const mailOptions = {
     from: '"BizSync System" <admin@bizsync.local>',
-    to: toAddresses,
+    to: toAddress,
     subject: `SYSTEM ALERT: Low Stock for ${itemName}`,
-    text: `Hello,\n\nThis is an automated system alert. The stock for ${itemName} has fallen to a critical level (${currentStock} remaining).\n\nManager: Please review the inventory and approve a purchase request.\nVendor: Please prepare for a potential incoming restock order.\n\nThank you,\nBizSync Automated System`
+    text: `Hello Manager,\n\nThe stock for ${itemName} has fallen to a critical level (${currentStock} remaining).\nPlease review the inventory and approve a purchase request to restock immediately.\n\nThank you,\nBizSync Automated System`
   };
   
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       console.log('Error sending email:', err);
     } else {
-      console.log('Alert Emails sent to Manager & Vendor! Preview URL:', nodemailer.getTestMessageUrl(info));
+      console.log('Manager Alert Email sent! Preview URL:', nodemailer.getTestMessageUrl(info));
     }
   });
 };
@@ -120,8 +113,8 @@ const checkInventoryAndNotify = () => {
           time: 'Just now'
         });
         
-        // Trigger automated email to BOTH manager and vendor
-        sendAlertEmails(item.name, item.stock);
+        // Trigger automated manager email
+        sendManagerAlertEmail(item.name, item.stock);
         
       } else if (item.stock < item.reorderLevel / 2 && item.status !== 'Critical' && item.stock >= 10) {
         newStatus = 'Critical';
