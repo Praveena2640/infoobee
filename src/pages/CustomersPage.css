@@ -1,0 +1,22 @@
+.customers-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.customers-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-6);
+}
+
+.customers-card-header {
+  padding-bottom: 0;
+}
+
+.customers-search {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}

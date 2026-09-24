@@ -1,0 +1,57 @@
+.restock-page {
+  animation: fadeIn 0.3s ease;
+}
+
+.restock-content {
+  margin-top: var(--spacing-6);
+  max-width: 800px;
+}
+
+.restock-card {
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-xl);
+}
+
+.restock-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.restock-select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restock-select:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+}
+
+.mt-8 {
+  margin-top: var(--spacing-8);
+}

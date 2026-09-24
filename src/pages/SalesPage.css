@@ -1,0 +1,66 @@
+.sales-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.sales-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: var(--spacing-6);
+}
+
+.metric-content-sm {
+  padding: var(--spacing-5) !important;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  height: 100%;
+}
+
+.metric-header-sm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-label-sm {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.metric-icon-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-value-sm {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.metric-trend {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.revenue-chart-card {
+  overflow: hidden;
+}
+
+.revenue-chart-content {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}

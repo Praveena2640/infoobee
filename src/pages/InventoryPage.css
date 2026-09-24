@@ -1,0 +1,16 @@
+.inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.inventory-card-header {
+  padding-bottom: 0;
+}
+
+.inventory-search {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}

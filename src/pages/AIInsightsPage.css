@@ -1,0 +1,79 @@
+.ai-insights-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-6);
+}
+
+.forecast-card {
+  min-height: 500px;
+}
+
+.recommendations-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.recommendation-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.rec-card {
+  border-left: 4px solid var(--border-color);
+}
+
+.border-l-warning { border-left-color: var(--warning-color) !important; }
+.border-l-success { border-left-color: var(--success-color) !important; }
+.border-l-danger { border-left-color: var(--danger-color) !important; }
+
+.rec-card-content {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4) !important;
+}
+
+.rec-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rec-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.rec-details h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.rec-details p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.rec-actions {
+  margin-top: var(--spacing-2);
+}
